@@ -1,6 +1,5 @@
 package com.hotel.app.exceptions;
 
-import com.hotel.app.model.Reservation;
 import com.hotel.app.response.BasicResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
