@@ -34,7 +34,7 @@ jobs:
 
       - name: Read values from file
         run: |
-          . ${GITHUB_WORKSPACE}/terraform/dev/dev.conf
+          . ${GITHUB_WORKSPACE}/.github/terraform/dev/dev.conf
           echo "Reading variables from file"
           echo "$my_key"
           echo "$my_val"
