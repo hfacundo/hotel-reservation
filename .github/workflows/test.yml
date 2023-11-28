@@ -37,4 +37,5 @@ jobs:
           . ${GITHUB_WORKSPACE}/.github/terraform/dev/dev.conf
           echo "Reading variables from file"
           echo "$my_key"
+          echo "$my_val"
 
