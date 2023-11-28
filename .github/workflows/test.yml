@@ -1,0 +1,40 @@
+name: Test Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  hello_world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print hello world
+        run: echo "Hola, mundo"
+
+      - name: Guardar variable como secret
+        run: |
+          echo "value of secret: ${{ secrets.MY_SECRET }}"
+          OUTPUT_CK_SA_CLIENT_ID="value of var"
+          echo "MY_SECOND_VAR=THIS IS THE VALUE" >> $GITHUB_ENV
+          echo "value of output var: $OUTPUT_CK_SA_CLIENT_ID"
+          echo "value of my second var: ${{ env.MY_SECOND_VAR }}"
+          echo ""
+          OUTPUT_CK_SA_CLIENT_ID="key123"
+          echo "variable $OUTPUT_CK_SA_CLIENT_ID"
+          echo "OUTPUT_CK_SA_CLIENT_ID=$OUTPUT_CK_SA_CLIENT_ID" >> $GITHUB_ENV 
+          echo "OUTPUT_CK_SA_CLIENT_ID: ${{ env.OUTPUT_CK_SA_CLIENT_ID }}"
+
+      - name: Imprimir Hola Mundo 2
+        run: echo "Hola, mundo2 ${{ env.OUTPUT_CK_SA_CLIENT_ID }}"
+
+      - name: Read values from file
+        run: |
+          . /terraform/dev/dev.conf
+          echo "Reading variables from file"
+          echo "$my_key"
+          echo "$my_val"
