@@ -34,8 +34,7 @@ jobs:
 
       - name: Read values from file
         run: |
-          configfile = . ${GITHUB_WORKSPACE}/.github/terraform/dev/dev.conf
+          . ${GITHUB_WORKSPACE}/.github/terraform/dev/dev.conf
           echo "Reading variables from file"
-          echo "$( cat $configfile )"
           echo "$my_key"
 
