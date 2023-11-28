@@ -34,7 +34,7 @@ jobs:
 
       - name: Read values from file
         run: |
-          . /terraform/dev/dev.conf
+          . ../terraform/dev/dev.conf
           echo "Reading variables from file"
           echo "$my_key"
-          echo "$my_val"
+          echo "$my_val
